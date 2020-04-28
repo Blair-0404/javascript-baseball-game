@@ -4,7 +4,7 @@ javascript-baseball-game
 ## 1단계: 간단 야구 게임 구현하기
 ###  flow before coding (ver1 - 간략하게)
     - [ ] 게임이 시작되면 "첫 번째 타자가 타석에 입장했습니다." 메시지 출력
-        - [ ] strike, ball, anta, out 중 랜던하게 한가지가 선택되고 (출력되기)
+        - [ ] strike, ball, anta, out 중 랜덤하게 한가지가 선택되고 (출력되기)
             - [ ] 이때마다 strike, ball, anta, out 스코어(객체)가 업데이트 되기
             - [ ] 이때마다 (스코어 객체 중에서)strike, ball, out의 현황이 출력되기
                 - [ ] if) strike 3회 =>  out 1회로 (스코어 객체가)업데이트 되기
@@ -20,7 +20,7 @@ javascript-baseball-game
 ###  flow before coding (ver2 - 최대한 자세하게 다시 기록해보기)
     - [ ] 게임이 시작되면 "첫 번째 타자가 타석에 입장했습니다." 메시지 출력
     
-    - [ ] strike, ball, anta, out 중 랜던하게 한가지가 선택된다.
+    - [ ] strike, ball, anta, out 중 랜덤하게 한가지가 선택된다.
     
         - [ ] if) strike가 선택되면 
             - [ ] concole에 "스트라이크!" 출력되기
@@ -67,7 +67,7 @@ javascript-baseball-game
 
 *** 
     
-#### 생각해보기
+### 생각해보기
     - 오류의 경우도 생각해보기!!
     - equal list는 동시에 고려해서 적절히 결정하며 코드짜기
     - 반복되는 기능들(행동들)은 최대한 묶어서 함수로 만들어보기
