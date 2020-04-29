@@ -7,12 +7,22 @@ baseball.currentScore = {
   out: 0
 };
 
+baseball.selectRandomResult = function() {
+  // todo 1~4중 하나가 랜덤으로 나오게
+  // todo 나온 값에 따른 switch / case 실행문 코딩하기
+};
+
+baseball.resetStrikeAndBall = function() {
+  this.currentScore.strike = 0;
+  this.currentScore.ball = 0;
+};
+
 baseball.getStrike = function () {
   this.showMessage.strikeMessage();
   this.currentScore.strike++;
 
   if (this.currentScore.strike === 3) {
-    // todo 스트라이크와 볼은 초기화 함수 넣기
+    this.resetStrikeAndBall();
     this.currentScore.out++; // Q. 15,16 이 둘은 과연 동시에 일어날까?
 
     if (this.currentScore.out === 3) {
@@ -31,7 +41,7 @@ baseball.getBall = function () {
   this.currentScore.ball++;
 
   if (this.currentScore.ball === 4) {
-    // todo 스트라이크와 볼은 초기화 함수 넣기
+    this.resetStrikeAndBall();
     this.currentScore.hit++;
   }
 
@@ -41,13 +51,31 @@ baseball.getBall = function () {
 baseball.getHit = function () {
   this.showMessage.hitMessage();
   this.showMessage.nextPayerMessage();
-  // todo 스트라이크와 볼은 초기화 함수 넣기
+  this.resetStrikeAndBall();
   this.currentScore.hit++;
   this.showMessage.currentScoreMessage()
 };
 
+baseball.getOut = function () {
+  this.resetStrikeAndBall();
+  this.currentScore.out++;
 
+  this.baseball.getThreeOut();
+};
 
+baseball.getThreeOut = function () {
+
+  if (this.currentScore.out === 3) {
+    this.showMessage.outMessage();
+    this.showMessage.currentScoreMessage();
+    this.showMessage.gameOverMessage();
+  } else {
+    this.showMessage.outMessage();
+    this.showMessage.nextPayerMessage();
+    this.resetStrikeAndBall();
+    this.showMessage.currentScoreMessage()
+  }
+};
 
 
 baseball.showMessage = {
@@ -83,8 +111,7 @@ baseball.showMessage = {
 
 
 baseball.playGame = function () {
-  this.getStrike();
-
+  this.showMessage.startMessage();
 
 };
 

@@ -26,7 +26,7 @@ javascript-baseball-game
             - [O] concole에 "스트라이크!" 출력되기
             - [O] 스코어객체 strike 점수 +1 업데이트 되기
                 - [O] if) 스코어객체 strike가 3회 이면
-                    - [ ] 스코어객체 strike, ball 점수는 초기화되기
+                    - [O] 스코어객체 strike, ball 점수는 초기화되기
                     - [O] 스코어객체 out 점수 +1 업데이트 되기
                     - [O] concole에 "아웃! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
@@ -35,30 +35,30 @@ javascript-baseball-game
             - [O] concole에 "볼!" 출력되기
             - [O] 스코어객체 ball 점수가 +1 업데이트 되기
                 - [O] if) 스코어객체 ball이 4회 이면
-                    - [ ] 스코어객체 strike, ball 점수는 초기화되기
+                    - [O] 스코어객체 strike, ball 점수는 초기화되기
                     - [O] 스코어객체 anta 점수 +1 업데이트 되기
                     - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                 
         - [ ] if) anta가 선택되면 
             - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
-            - [ ] 스코어객체 strike, ball 점수는 초기화되기
+            - [O] 스코어객체 strike, ball 점수는 초기화되기
             - [O] 스코어객체 anta 점수 +1 업데이트 되기
             - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
 
         - [ ] if) out이 선택되면 
-            - [ ] 스코어객체 strike, ball 점수는 초기화되기
-            - [ ] 스코어객체 out 점수 +1 업데이트 되기
-                - [ ] if) out이 3회가 되면  // 이 부분을 strike에도 걸어줘야할까?아니면 밖에 전체에 걸어줘야할까?
-                    - [*] concole에 "아웃!" 메세지 출력하기
-                    - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
-                    - [*] concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기
-                - [ ] else) 
-                    - [*] concole에 "아웃! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
-                    - [ ] 스코어객체 strike, ball 점수는 초기화되기
-                    - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
+            - [O] 스코어객체 strike, ball 점수는 초기화되기
+            - [O] 스코어객체 out 점수 +1 업데이트 되기
+                - [O] if) out이 3회가 되면  // 이 부분을 strike에도 걸어줘야할까?아니면 밖에 전체에 걸어줘야할까?
+                    - [O] concole에 "아웃!" 메세지 출력하기
+                    - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
+                    - [O] concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기
+                - [O] else) 
+                    - [O] concole에 "아웃! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
+                    - [O] 스코어객체 strike, ball 점수는 초기화되기
+                    - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                     
-    - [ ] if) out이 3회가 되면 concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기 // 이 부분은 매번 검사가 필요할 것 같은데..!
+    - [?] if) out이 3회가 되면 concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기 // 이 부분은 매번 검사가 필요할 것 같은데..!
 
 *** 
     
@@ -77,11 +77,11 @@ javascript-baseball-game
         - 그렇다면 게임이 계속 이어지는 기준은 out에 달려있다.
         - while (out < 3) 로 감싸면 어떨까? 
     - 그렇다면 필요한 함수들은 뭐가 있을까? ( 만드는 우선순위는 좀 더 고려해 봐야겠다! )
-        - [ ] strike,ball,anta,out각각의 기능 실행 함수 4개
+        - [O] strike,ball,anta,out각각의 기능 실행 함수 4개
         - [ ] 스코어 객체의 strike, ball 초기화하는 함수
         - [ ] 랜덤하게 한가지 고르는 함수
         - 함수랜덤 결과에 따른 실행 함수가 필요할 것 같다. ->  너무 세분화 되는 것 같아서 일단 보류
-        - [ ] 아웃 현황에 따라서 게임을 진행하거나 마치는 함수가 필요할 것 같다.
+        - [*] 아웃 현황에 따라서 게임을 진행하거나 마치는 함수가 필요할 것 같다.
         - [O] 메세지 출력을 모아놓은 함수? 혹은 변수들? (어떤게 더 나을까? 그냥 그떄그떄 해주는게 console.log()로 출력해주는게 나으려나?)
             - gameStart 메세지
             - strike 메세지 
