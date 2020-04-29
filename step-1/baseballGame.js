@@ -1,10 +1,29 @@
-const baseball = {}; // object이므로 const로 선언했는데 적절한지 모르겠다.
+const baseball = {}; // Q. object이므로 const로 선언했는데 적절한지 모르겠다.
 
 baseball.currentScore = {
   strike: 2,
   ball: 0,
   hit: 0,
   out: 0
+};
+
+baseball.getStrike = function () {
+  this.showMessage.strikeMessage();
+  this.currentScore.strike++;
+
+  if (this.currentScore.strike === 3) {
+    // todo 스트라이크와 볼은 초기화 함수 넣기
+    this.currentScore.out++; // Q. 15,16 이 둘은 과연 동시에 일어날까?
+
+    if (this.currentScore.out === 3) {
+      // todo 3아웃인지 조건걸고 3아웃이면 경기종료!
+    } else {
+      this.showMessage.outMessage();
+      this.showMessage.nextPayerMessage();
+    }
+  }
+
+  this.showMessage.currentScoreMessage()
 };
 
 
