@@ -26,6 +26,28 @@ baseball.getStrike = function () {
   this.showMessage.currentScoreMessage()
 };
 
+baseball.getBall = function () {
+  this.showMessage.ballMessage();
+  this.currentScore.ball++;
+
+  if (this.currentScore.ball === 4) {
+    // todo 스트라이크와 볼은 초기화 함수 넣기
+    this.currentScore.hit++;
+  }
+
+  this.showMessage.currentScoreMessage()
+};
+
+baseball.getHit = function () {
+  this.showMessage.hitMessage();
+  this.showMessage.nextPayerMessage();
+  // todo 스트라이크와 볼은 초기화 함수 넣기
+  this.currentScore.hit++;
+  this.showMessage.currentScoreMessage()
+};
+
+
+
 
 
 baseball.showMessage = {

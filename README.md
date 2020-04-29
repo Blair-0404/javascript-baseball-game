@@ -32,18 +32,18 @@ javascript-baseball-game
             - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
             
         - [ ] if) ball이 선택되면 
-            - [*] concole에 "볼!" 출력되기
-            - [ ] 스코어객체 ball 점수가 +1 업데이트 되기
-                - [ ] if) 스코어객체 ball이 4회 이면
+            - [O] concole에 "볼!" 출력되기
+            - [O] 스코어객체 ball 점수가 +1 업데이트 되기
+                - [O] if) 스코어객체 ball이 4회 이면
                     - [ ] 스코어객체 strike, ball 점수는 초기화되기
-                    - [ ] 스코어객체 anta 점수 +1 업데이트 되기
-                    - [*] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
+                    - [O] 스코어객체 anta 점수 +1 업데이트 되기
+                    - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                 
         - [ ] if) anta가 선택되면 
-            - [*] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
+            - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [ ] 스코어객체 strike, ball 점수는 초기화되기
-            - [ ] 스코어객체 anta 점수 +1 업데이트 되기
+            - [O] 스코어객체 anta 점수 +1 업데이트 되기
             - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
 
         - [ ] if) out이 선택되면 
@@ -55,6 +55,7 @@ javascript-baseball-game
                     - [*] concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기
                 - [ ] else) 
                     - [*] concole에 "아웃! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
+                    - [ ] 스코어객체 strike, ball 점수는 초기화되기
                     - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                     
     - [ ] if) out이 3회가 되면 concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기 // 이 부분은 매번 검사가 필요할 것 같은데..!
