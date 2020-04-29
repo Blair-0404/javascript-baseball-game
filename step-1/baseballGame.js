@@ -1,7 +1,7 @@
 const baseball = {}; // Q. object이므로 const로 선언했는데 적절한지 모르겠다.
 
 baseball.currentScore = {
-  strike: 2,
+  strike: 0,
   ball: 0,
   hit: 0,
   out: 0
@@ -38,7 +38,7 @@ baseball.getStrike = function () {
     this.currentScore.out++; // Q. 15,16 이 둘은 과연 동시에 일어날까?
 
     if (this.currentScore.out === 3) {
-      return this.getThreeOut(); // return 이 적절하게 쓰인건지 고민해보기
+      return this.getThreeOut();
     } else {
       this.showMessage.outMessage();
       this.showMessage.nextPayerMessage();
@@ -119,13 +119,13 @@ baseball.showMessage = {
     console.log("다음 타자가 타석에 입장했습니다.")
   },
   currentScoreMessage: function () {
-    let strike = this.currentScore.strike;
-    let ball = this.currentScore.ball;
-    let out = this.currentScore.out;
+    let strike = baseball.currentScore.strike; // let strike =this.currentScore.strike 으로 접근불가 -> 공부해보기
+    let ball = baseball.currentScore.ball;
+    let out = baseball.currentScore.out;
     console.log(`[ 현재스코어 = ${strike}S ${ball}B ${out}O ]`);
   },
   gameOverMessage: function () {
-    let hit = this.currentScore.hit;
+    let hit = baseball.currentScore.hit;
     console.log(`[ 최종 안타수 = ${hit} ] \n\ -GAME OVER-`);
   }
 };
