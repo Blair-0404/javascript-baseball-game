@@ -20,9 +20,9 @@ javascript-baseball-game
 ###  flow before coding (ver2 - 최대한 자세하게 다시 기록해보기)
     - [O] 게임이 시작되면 "첫 번째 타자가 타석에 입장했습니다." 메시지 출력
     
-    - [ ] strike, ball, anta, out 중 랜덤하게 한가지가 선택된다.
+    - [O] strike, ball, anta, out 중 랜덤하게 한가지가 선택된다.
     
-        - [ ] if) strike가 선택되면 
+        - [O] if) strike가 선택되면 
             - [O] concole에 "스트라이크!" 출력되기
             - [O] 스코어객체 strike 점수 +1 업데이트 되기
                 - [O] if) 스코어객체 strike가 3회 이면
@@ -31,22 +31,22 @@ javascript-baseball-game
                     - [O] concole에 "아웃! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
             
-        - [ ] if) ball이 선택되면 
+        - [O] if) ball이 선택되면 
             - [O] concole에 "볼!" 출력되기
             - [O] 스코어객체 ball 점수가 +1 업데이트 되기
                 - [O] if) 스코어객체 ball이 4회 이면
                     - [O] 스코어객체 strike, ball 점수는 초기화되기
                     - [O] 스코어객체 anta 점수 +1 업데이트 되기
                     - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
-            - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
+            - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                 
-        - [ ] if) anta가 선택되면 
+        - [O] if) anta가 선택되면 
             - [O] concole에 "안타! 다음 타자가 타석에 입장했습니다." 메세지 출력하기
             - [O] 스코어객체 strike, ball 점수는 초기화되기
             - [O] 스코어객체 anta 점수 +1 업데이트 되기
-            - [*] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
+            - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
 
-        - [ ] if) out이 선택되면 
+        - [O] if) out이 선택되면 
             - [O] 스코어객체 strike, ball 점수는 초기화되기
             - [O] 스코어객체 out 점수 +1 업데이트 되기
                 - [O] if) out이 3회가 되면  // 이 부분을 strike에도 걸어줘야할까?아니면 밖에 전체에 걸어줘야할까?
@@ -58,8 +58,6 @@ javascript-baseball-game
                     - [O] 스코어객체 strike, ball 점수는 초기화되기
                     - [O] concole에 스코어 객체중 strike, ball, out의 현황이 출력되기
                     
-    - [?] if) out이 3회가 되면 concole에 "최종 안타수: (스코어객체의 안타수인) x" 출력하고 & "GAME OVER" 메시지 출력하기 // 이 부분은 매번 검사가 필요할 것 같은데..!
-
 *** 
     
 ### 필요한 객체
