@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 선수 생성자
+  const Player = function (playerName, BattingAverage) {
+    this.playerName = playerName;
+    this.BattingAverage = BattingAverage;
+  };
+
+  // 팀 생성자
+  const Team = function (teamName, players) {
+    this.teamName = teamName;
+    this.players = players;
+  };
+
+  const baseball = {};
+
+  baseball.currentScore = {
+    strike: 0,
+    ball: 0,
+    hit: 0,
+    out: 0
+  };
+
+  baseball.teams = [];
+
+  // 팀 데이터 입력
+  baseball.insertDate = function(teamNumber) {
+    const teamName = prompt(teamNumber + '팀의 이름을 입력해 주세요');
+    const playerList = [];
+
+    for(let playerNums = 1; playerNums < 3; playerNums++) {
+      const playerData = prompt(playerNums + '의 이름과 타율을 ,로 구분하여 입력해주세요').split(',');
+      const player = new Player(playerData[0], (playerData[1] * 1));
+      playerList.push(player)
+    }
+
+    const team = new Team(teamName, playerList);
+    this.teams.push(team);
+  };
+
+  // 필요한 팀들 생성
+  baseball.makeTeams = function(teamCount) {
+    for(let i = 0; i < teamCount; i++) {
+      baseball.insertDate(i)
+    }
+
+  };
+
+
+  baseball.selectRandomResult = function () {
+    let randomResult = Math.floor(Math.random() * 4);
+
+    switch (randomResult) {
+      case 0:
+        this.getStrike();
+        break;
+      case 1:
+        this.getBall();
+        break;
+      case 2:
+        this.getHit();
+        break;
+      case 3:
+        this.getOut();
+        break;
+      default:
+        console.error('error');
+    }
+  };
+
+  baseball.getStrike = function () {
+    this.showMessage.strikeMessage();
+    this.currentScore.strike++;
+
+    if (this.currentScore.strike === 3) {
+      this.resetStrikeAndBall();
+      this.currentScore.out++; // Q. 15,16 이 둘은 과연 동시에 일어날까?
+
+      if (this.currentScore.out === 3) {
+        return this.getThreeOut();
+      } else {
+        this.showMessage.outMessage();
+        this.showMessage.nextPayerMessage();
+      }
+    }
+
+    this.showMessage.currentScoreMessage()
+  };
+
+
+  baseball.getBall = function () {
+    this.showMessage.ballMessage();
+    this.currentScore.ball++;
+
+    if (this.currentScore.ball === 4) {
+      this.resetStrikeAndBall();
+      this.currentScore.hit++;
+    }
+
+    this.showMessage.currentScoreMessage()
+  };
+
+
+  baseball.getHit = function () {
+    this.showMessage.hitMessage();
+    this.showMessage.nextPayerMessage();
+    this.resetStrikeAndBall();
+    this.currentScore.hit++;
+    this.showMessage.currentScoreMessage()
+  };
+
+
+  baseball.getOut = function () {
+    this.resetStrikeAndBall();
+    this.currentScore.out++;
+    this.getThreeOut();
+  };
+
+
+  baseball.getThreeOut = function () {
+
+    if (this.currentScore.out === 3) {
+      this.showMessage.outMessage();
+      this.showMessage.currentScoreMessage();
+      this.showMessage.gameOverMessage();
+    } else {
+      this.showMessage.outMessage();
+      this.showMessage.nextPayerMessage();
+      this.resetStrikeAndBall();
+      this.showMessage.currentScoreMessage()
+    }
+  };
+
+
+  baseball.resetStrikeAndBall = function () {
+    this.currentScore.strike = 0;
+    this.currentScore.ball = 0;
+  };
+
+
+  baseball.showMessage = {
+    startMessage: function () {
+      console.log("첫 번째 타자가 타석에 입장했습니다.")
+    },
+    strikeMessage: function () {
+      console.log("스트라이크!")
+    },
+    ballMessage: function () {
+      console.log("볼!")
+    },
+    hitMessage: function () {
+      console.log("안타!")
+    },
+    outMessage: function () {
+      console.log("아웃!")
+    },
+    nextPayerMessage: function () {
+      console.log("다음 타자가 타석에 입장했습니다.")
+    },
+    currentScoreMessage: function () {
+      let strike = baseball.currentScore.strike; // let strike =this.currentScore.strike 으로 접근불가 -> 공부해보기
+      let ball = baseball.currentScore.ball;
+      let out = baseball.currentScore.out;
+      console.log(`[ 현재스코어 = ${strike}S ${ball}B ${out}O ]`);
+    },
+    gameOverMessage: function () {
+      let hit = baseball.currentScore.hit;
+      console.log(`[ 최종 안타수 = ${hit} ] \n\ -GAME OVER-`);
+    }
+  };
+
+
+  baseball.playGame = function () {
+    this.showMessage.startMessage();
+    while (this.currentScore.out < 3) {
+      this.selectRandomResult();
+    }
+  };
+  // baseball.playGame();
+
+  baseball.makeTeams(2)
+  console.log(baseball.teams)
+
+</script>
+</body>
+</html>
