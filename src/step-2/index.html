@@ -10,15 +10,17 @@
 <body>
 <script>
   // 선수 생성자
-  const Player = function (playerName, BattingAverage) {
+  const Player = function (playerName, battingAverage) {
     this.playerName = playerName;
-    this.BattingAverage = BattingAverage;
+    this.battingAverage = battingAverage;
   };
 
   // 팀 생성자
   const Team = function (teamName, players) {
     this.teamName = teamName;
     this.players = players;
+    this.currentPlayersIdx = 0;
+    this.score = 0;
   };
 
   const baseball = {};
@@ -27,7 +29,8 @@
     strike: 0,
     ball: 0,
     hit: 0,
-    out: 0
+    out: 0,
+    inning : 0
   };
 
   baseball.teams = [];
@@ -175,20 +178,48 @@
     gameOverMessage: function () {
       let hit = baseball.currentScore.hit;
       console.log(`[ 최종 안타수 = ${hit} ] \n\ -GAME OVER-`);
-    }
+    },
+    introTeamMessage: function () {
+      console.log(`${baseball.teams[0].teamName} VS ${baseball.teams[1].teamName 의 시합을 시작합니다.}`)
+    },
   };
 
-
-  baseball.playGame = function () {
-    this.showMessage.startMessage();
-    while (this.currentScore.out < 3) {
-      this.selectRandomResult();
+  baseball.startGame = function () {
+    this.showMessage.introTeamMessage();
+    while (this.currentScore.inning <= 6) {
+      this.playHalfGame(1);
+      this.playHalfGame(2);
+      this.currentScore.inning ++;
     }
-  };
-  // baseball.playGame();
 
-  baseball.makeTeams(2)
-  console.log(baseball.teams)
+    console.log('경기 종료');
+    console.log(`${this.teams[0].name} VS ${this.teams.name[1]}`);
+    console.log(`${this.teams[0].score} VS ${this.teams.score[1]}`);
+    // while (this.currentScore.out < 3) {
+    //   this.selectRandomResult();
+    // }
+  };
+
+  baseball.playHalfGame = function(teamNumber) {
+    const halfMessage = teamNumber === 1 ? '초' : '말';
+    console.log(`${this.currentScore.inning} 회 ${halfMessage} ${this.teams[teamNumber - 1].teamName}의 공격`);
+
+    const team = this.teams[teamNumber - 1];
+    while(this.currentScore.out < 3) {
+      const currentPlayer = team.players[team.currentPlayersIdx];
+      const strikeBallRate = (1 - currentPlayer.battingAverage) / 2 - 0.05;
+
+      console.log(`${team.currentPlayersIdx + 1} 번 ${currentPlayer.playerName}`);
+
+      const value = Math.random();
+      if(value < currentPlayer.battingAverage) {
+        // 잠시 중단..
+
+      }
+    }
+
+  }
+
 
 </script>
 </body>
